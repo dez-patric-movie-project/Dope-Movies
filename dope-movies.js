@@ -14,16 +14,16 @@ $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</
             $( "#loadingDiv" ).remove(); //makes page more lightweight
         });
     }
-    function showMovies(list) {
-        $('#movieList').htmml('')
 
-    }
-    console.log(list);
     function getMovies() {
     return fetch(dopeAPI)
         .then((response)=>response.json())
 }
-getMovies().then((movies)=>console.log(movies))
+getMovies().then((movies)=>{
+    console.log(movies)
+    removeLoader() //Removing the loading message and loading movies
+
+})
 
 
 
