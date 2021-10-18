@@ -13,7 +13,7 @@ $(document).ready(function () {
         console.log(movies)
         // console.log(movieCard);
         removeLoader()
-        movies.forEach(movieDisplay)
+        renderMovies(movies)
     })
 
     $("#addMovie").click(function (e) {
@@ -25,17 +25,27 @@ $(document).ready(function () {
         addMovie(movie)
     });
 
-    $('#deleteMovie').click(function (e) {
-        e.preventDefault()
-        $(this).parent().remove(this);
-        deleteMovie(this)
-        console.log(this)
-    });
+
 
 
 });
 const dopeAPI = 'https://wiggly-sassy-impatiens.glitch.me/movies';
 const omdbApiKey = 'afe37df3'
+
+
+function renderMovies(movies){
+    movies.forEach(movieDisplay)
+    $('.delete-btn').click(function (e) {
+        e.preventDefault()
+        var id = $(this).parent().parent().attr('id')
+        console.log(id)
+        // $(this).parent('div').remove();
+        deleteMovie({id})
+        console.log(this)
+
+    });
+}
+
 function movieDisplay(movie) {
     console.log(movie)
 
@@ -48,6 +58,8 @@ function movieDisplay(movie) {
                                 <p class="card-text p-0 m-0 ">Rating: ${movie.rating}</p>
                                 <p class="card-text p-0 m-0 mb-2">Genre: ${movie.genre}</p>
                                 <button type="button" id="deleteMovie" class="delete-btn btn btn-danger">Delete</button></div></div>`)
+
+
 
 }
 
@@ -82,7 +94,7 @@ function addMovie(movie) {
                 console.log(movies)
                 // console.log(movieCard);
                 removeLoader()
-                movies.forEach(movieDisplay)
+               renderMovies(movies)
             })
         })
 }
@@ -92,9 +104,9 @@ function deleteMovie(movie) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(movie)
+        // body: JSON.stringify(movie)
     }
-    fetch(dopeAPI,options)
+    fetch(dopeAPI +'/' + movie.id,options)
         .then((response)=>{
             return response.json();
         })
@@ -105,7 +117,7 @@ function deleteMovie(movie) {
                 console.log(movies)
                 // console.log(movieCard);
                 removeLoader()
-                movies.forEach(movieDisplay)
+                renderMovies(movies)
             })
 
         })
