@@ -21,8 +21,16 @@ $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</
 }
 getMovies().then((movies)=>{
     console.log(movies)
-    removeLoader() //Removing the loading message and loading movies
-
+    let movieCard = {
+        title : movies[0].title,
+        poster : movies[0].poster,
+        actors : movies[0].actors,
+        director : movies[0].director
+            }
+        console.log(movieCard);
+        removeLoader()//Removing the loading message and loading movie
+    // return movies
+        ((movies)=>movies.forEach((movie)=>console.log(movie)))
 })
 
 
