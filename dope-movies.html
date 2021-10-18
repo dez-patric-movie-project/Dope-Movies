@@ -10,11 +10,16 @@
 <form>
 
     <div class="form-group mt-3">
-        <label for="user-input">Add A Movie</label>
+        <h3>Add A Movie</h3>
         <div class="form-group">
-            <textarea class="form-control" placeholder="Movies" id="user-input" rows="1"></textarea>
+            <label for="userTitle">Title</label>
+            <input class="form-control" placeholder="Movie Title" id="userTitle">
         </div>
-        <button type="button" class="btn btn-success btn-sm mb-2">Search</button>
+        <div class="form-group">
+            <label for="userRating">Rating</label>
+            <input class="form-control" placeholder="5" id="userRating">
+        </div>
+        <button type="button" id="addMovie" class="btn btn-success btn-sm mb-2">Search</button>
         <select multiple class="form-control" id="exampleFormControlSelect2">
             <option>1</option>
             <option>2</option>
