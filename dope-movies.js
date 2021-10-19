@@ -45,9 +45,16 @@ $(document).ready(function () {
         'background-repeat': 'no-repeat',
         'background-position': 'center',
         'opacity': 0.9,
-        'z-index': -1,
-        'background-attachment': 'fixed'
-        })
+        'z-index': 1,
+        'background-attachment': 'fixed',
+        'font-family': "'Kalam', cursive",
+        // 'background': '#000428',
+        // 'background': '-webkit-linear-gradient(to top, #004e92, #000428)',
+        // 'background':     'linear-gradient(to top, #004e92, #000428)',
+        // 'height': '100vh',
+        // 'width': '100vw'
+
+})
 
 });
 const dopeAPI = 'https://wiggly-sassy-impatiens.glitch.me/movies';
