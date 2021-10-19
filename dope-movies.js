@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
 
-
     $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
     $(window).on('load', function () {
         setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
@@ -41,7 +40,14 @@ $(document).ready(function () {
     });
 
 
-
+    $('body').css({
+        'background-image': 'url("/img/Nintendo-Dope-Boo__97995.1557939563.jpg")',
+        'background-repeat': 'no-repeat',
+        'background-position': 'center',
+        'opacity': 0.9,
+        'z-index': -1,
+        'background-attachment': 'fixed'
+        })
 
 });
 const dopeAPI = 'https://wiggly-sassy-impatiens.glitch.me/movies';
@@ -87,7 +93,10 @@ function movieDisplay(movie) {
                                 <h5>${movie.title}</h5>
                                 <img src="${movie.poster}" class="img-fluid"></img>
                                 <p class="card-text p-0 m-0 ">Rating: ${movie.rating}</p>
-                                <p class="card-text p-0 m-0 mb-2">Genre: ${movie.genre}</p>
+                                <p class="card-text p-0 m-0 mb-2">Director: ${movie.director}</p>
+                                <p class="card-text p-0 m-0 mb-2">Genre: ${movie.genre}</p> 
+                                <p class="card-text p-0 m-0 mb-2">Year: ${movie.year}</p>
+
                                 <button type="button" id="deleteMovie" class="delete-btn btn btn-danger">Delete</button>
                                 <button type="button" id="editMovie" class="edit-btn btn btn-danger">Edit</button>
                                 </div></div></div>`)
@@ -106,6 +115,7 @@ function removeLoader() {
 function getMovies() {
     return fetch(dopeAPI)
         .then((response) => response.json())
+
 }
 function getMovies2(title) {
     return fetch(`http://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(title)}`) //encodeURIComponent replaces spaces with special characters
@@ -200,3 +210,4 @@ function editMovie(movie) {
 
         })
 }
+
