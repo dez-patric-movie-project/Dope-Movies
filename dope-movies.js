@@ -112,6 +112,7 @@ function movieDisplay(movie) {
 
 }
 
+//https://stackoverflow.com/questions/1853662/how-to-show-page-loading-div-until-the-page-has-finished-loading
 function removeLoader() {
     $("#loadingDiv").fadeOut(500, function () {
         // fadeOut complete. Remove the loading div
